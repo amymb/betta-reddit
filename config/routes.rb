@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'sign_in' => 'authentication#new'
   post 'sign_in' => 'authentication#create'
 
-  resources :posts
+  resources :posts do
+    resources :comments, only: [:create, :update, :destroy]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

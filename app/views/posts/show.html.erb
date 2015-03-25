@@ -2,3 +2,15 @@
 <%=@post.content%>
 <%=link_to "Edit", edit_post_path(@post)%>
 <%=link_to "Delete Post", @post, method: :delete %>
+
+  <%@post.comments.each do |comment|%>
+    <%=comment.content%>
+    <%=comment.user%>
+  <%end%>
+
+
+<%=form_for [@post, @comment] do |f|%>
+  <%=f.label :content%>
+  <%=f.text_area :content%>
+  <%=f.submit "Create Comment"%>
+<%end%>
