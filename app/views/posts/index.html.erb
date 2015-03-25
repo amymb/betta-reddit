@@ -1,2 +1,11 @@
 <%=link_to "Sign Up", sign_up_path%>
 <%= link_to "Sign In", sign_in_path %>
+
+<br />
+
+<h1>Todays Posts</h1>
+
+<%= @posts.each do |post| %>
+<%= post.title %>
+<%= post.content %>
+<% end %>
