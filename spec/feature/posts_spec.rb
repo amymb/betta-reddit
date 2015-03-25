@@ -50,6 +50,19 @@ feature 'Posts CRUD' do
     expect(page).to have_content("This is an update")
   end
 
-#  scenario 'signed in user can delete post' do
+  scenario 'signed in user can delete post' do
+    post = create_post
+    visit root_path
+    sign_in_user
+
+    click_on "Best Post"
+    expect(page).to have_content "Best Post"
+
+    click_on "Delete Post"
+
+    expect(current_path).to eq root_path
+    expect(page).to_not have_content "Best Post"
+  end
+
 
 end
