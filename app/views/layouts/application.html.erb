@@ -10,6 +10,9 @@
 <%if current_user.present?%>
   <%=current_user.user_name%>
   <%end%>
+
+<%= flash[:notice] %>
+
 <%= yield %>
 
 </body>
